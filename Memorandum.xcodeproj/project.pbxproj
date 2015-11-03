@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		29BDDB921BE5BA2A002B4F7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BDDB911BE5BA2A002B4F7B /* main.m */; };
 		29BDDB951BE5BA2A002B4F7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BDDB941BE5BA2A002B4F7B /* AppDelegate.m */; };
-		29BDDB981BE5BA2A002B4F7B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BDDB971BE5BA2A002B4F7B /* ViewController.m */; };
 		29BDDB9B1BE5BA2A002B4F7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29BDDB991BE5BA2A002B4F7B /* Main.storyboard */; };
 		29BDDB9D1BE5BA2A002B4F7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29BDDB9C1BE5BA2A002B4F7B /* Assets.xcassets */; };
 		29BDDBA01BE5BA2A002B4F7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29BDDB9E1BE5BA2A002B4F7B /* LaunchScreen.storyboard */; };
+		29BDDBA91BE5BAB7002B4F7B /* YQMainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BDDBA81BE5BAB7002B4F7B /* YQMainTableViewController.m */; };
+		29BDDBAB1BE5BD52002B4F7B /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29BDDBAA1BE5BD52002B4F7B /* data.plist */; };
+		29BDDBAE1BE84BB6002B4F7B /* YQDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BDDBAD1BE84BB6002B4F7B /* YQDetailsViewController.m */; };
+		29BDDBB11BE863F4002B4F7B /* YQNewMenorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BDDBB01BE863F4002B4F7B /* YQNewMenorViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +23,17 @@
 		29BDDB911BE5BA2A002B4F7B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29BDDB931BE5BA2A002B4F7B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		29BDDB941BE5BA2A002B4F7B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		29BDDB961BE5BA2A002B4F7B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		29BDDB971BE5BA2A002B4F7B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		29BDDB9A1BE5BA2A002B4F7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		29BDDB9C1BE5BA2A002B4F7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29BDDB9F1BE5BA2A002B4F7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29BDDBA11BE5BA2A002B4F7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29BDDBA71BE5BAB7002B4F7B /* YQMainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQMainTableViewController.h; sourceTree = "<group>"; };
+		29BDDBA81BE5BAB7002B4F7B /* YQMainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQMainTableViewController.m; sourceTree = "<group>"; };
+		29BDDBAA1BE5BD52002B4F7B /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
+		29BDDBAC1BE84BB6002B4F7B /* YQDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQDetailsViewController.h; sourceTree = "<group>"; };
+		29BDDBAD1BE84BB6002B4F7B /* YQDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQDetailsViewController.m; sourceTree = "<group>"; };
+		29BDDBAF1BE863F4002B4F7B /* YQNewMenorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQNewMenorViewController.h; sourceTree = "<group>"; };
+		29BDDBB01BE863F4002B4F7B /* YQNewMenorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQNewMenorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,13 +68,17 @@
 			children = (
 				29BDDB931BE5BA2A002B4F7B /* AppDelegate.h */,
 				29BDDB941BE5BA2A002B4F7B /* AppDelegate.m */,
-				29BDDB961BE5BA2A002B4F7B /* ViewController.h */,
-				29BDDB971BE5BA2A002B4F7B /* ViewController.m */,
 				29BDDB991BE5BA2A002B4F7B /* Main.storyboard */,
 				29BDDB9C1BE5BA2A002B4F7B /* Assets.xcassets */,
 				29BDDB9E1BE5BA2A002B4F7B /* LaunchScreen.storyboard */,
 				29BDDBA11BE5BA2A002B4F7B /* Info.plist */,
 				29BDDB901BE5BA2A002B4F7B /* Supporting Files */,
+				29BDDBA71BE5BAB7002B4F7B /* YQMainTableViewController.h */,
+				29BDDBA81BE5BAB7002B4F7B /* YQMainTableViewController.m */,
+				29BDDBAC1BE84BB6002B4F7B /* YQDetailsViewController.h */,
+				29BDDBAD1BE84BB6002B4F7B /* YQDetailsViewController.m */,
+				29BDDBAF1BE863F4002B4F7B /* YQNewMenorViewController.h */,
+				29BDDBB01BE863F4002B4F7B /* YQNewMenorViewController.m */,
 			);
 			path = Memorandum;
 			sourceTree = "<group>";
@@ -75,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				29BDDB911BE5BA2A002B4F7B /* main.m */,
+				29BDDBAA1BE5BD52002B4F7B /* data.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -105,6 +118,7 @@
 		29BDDB851BE5BA2A002B4F7B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = YQ;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = YQ;
 				TargetAttributes = {
@@ -139,6 +153,7 @@
 			files = (
 				29BDDBA01BE5BA2A002B4F7B /* LaunchScreen.storyboard in Resources */,
 				29BDDB9D1BE5BA2A002B4F7B /* Assets.xcassets in Resources */,
+				29BDDBAB1BE5BD52002B4F7B /* data.plist in Resources */,
 				29BDDB9B1BE5BA2A002B4F7B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,9 +165,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29BDDB981BE5BA2A002B4F7B /* ViewController.m in Sources */,
 				29BDDB951BE5BA2A002B4F7B /* AppDelegate.m in Sources */,
 				29BDDB921BE5BA2A002B4F7B /* main.m in Sources */,
+				29BDDBB11BE863F4002B4F7B /* YQNewMenorViewController.m in Sources */,
+				29BDDBA91BE5BAB7002B4F7B /* YQMainTableViewController.m in Sources */,
+				29BDDBAE1BE84BB6002B4F7B /* YQDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +280,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Memorandum/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoking.Memorandum;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -274,6 +292,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Memorandum/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoking.Memorandum;
 				PRODUCT_NAME = "$(TARGET_NAME)";
