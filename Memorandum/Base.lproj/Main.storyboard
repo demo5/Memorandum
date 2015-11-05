@@ -9,7 +9,7 @@
         <!--备忘录-->
         <scene sceneID="63P-tz-UIY">
             <objects>
-                <tableViewController id="gyD-3B-CXO" customClass="YQMainTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MainViewC" id="gyD-3B-CXO" customClass="YQMainTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="8P8-48-tOd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,9 +25,6 @@
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
-                                <connections>
-                                    <segue destination="7dg-Pj-hEr" kind="show" id="Fkt-Ur-Xtn"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -56,7 +53,7 @@
         <!--新增备忘录-->
         <scene sceneID="nHO-MU-MyD">
             <objects>
-                <viewController id="Skd-Ti-Vaj" customClass="YQNewMenorViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewViewC" id="Skd-Ti-Vaj" customClass="YQNewMenorViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HaX-OH-icL"/>
                         <viewControllerLayoutGuide type="bottom" id="QDQ-kT-9Yn"/>
@@ -124,7 +121,7 @@
         <!--详情-->
         <scene sceneID="yPf-f1-czL">
             <objects>
-                <viewController id="7dg-Pj-hEr" customClass="YQDetailsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsViewC" id="7dg-Pj-hEr" customClass="YQDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9bh-u2-9Xk"/>
                         <viewControllerLayoutGuide type="bottom" id="Adm-YK-4ha"/>
@@ -141,12 +138,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RVg-Vr-XhV">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RVg-Vr-XhV">
                                 <rect key="frame" x="0.0" y="114" width="320" height="299"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.90661267960000003" green="0.80127071809999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <mutableString key="text">哈哈哈哈Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.哈哈哈</mutableString>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>

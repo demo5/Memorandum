@@ -4,7 +4,7 @@
 //
 //  Created by YoKing on 15/11/1.
 //  Copyright © 2015年 YQ. All rights reserved.
-//
+//  显示所有备忘录的主页面
 
 #import "YQMainTableViewController.h"
 #import "YQDetailsViewController.h"
@@ -93,9 +93,15 @@ static BOOL flag = YES;
 #pragma mark - UITableViewDelegate 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    YQDetailsViewController *index = [[YQDetailsViewController alloc]init];
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    YQDetailsViewController *index = [storyBoard instantiateViewControllerWithIdentifier:@"DetailsViewC"];
+    
+    //为详情页面传所选中的行号
     index.index = indexPath.row;
     
+    
+    [self.navigationController pushViewController:index animated:YES];
+
     //取消被选中状态
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
