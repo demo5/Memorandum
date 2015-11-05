@@ -71,7 +71,7 @@
                                     <constraint firstAttribute="height" constant="42" id="hfY-IM-rC5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="21"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入标题" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="uhy-rH-Bo9">
@@ -90,16 +90,27 @@
                                     <constraint firstAttribute="height" constant="299" id="2D9-tU-MlF"/>
                                     <constraint firstAttribute="width" secondItem="70W-cd-uWy" secondAttribute="height" multiplier="320:299" id="l7a-qK-8aK"/>
                                 </constraints>
-                                <mutableString key="text">哈哈哈哈Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.哈哈哈</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击这里添加内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="643-gN-idL">
+                                <rect key="frame" x="0.0" y="108" width="320" height="37"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="9RO-WK-oHe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="uhy-rH-Bo9" secondAttribute="trailing" id="54N-bs-7f6"/>
                             <constraint firstItem="uhy-rH-Bo9" firstAttribute="bottom" secondItem="eaf-zi-9KH" secondAttribute="bottom" id="E3v-NK-dcE"/>
+                            <constraint firstItem="70W-cd-uWy" firstAttribute="top" secondItem="643-gN-idL" secondAttribute="top" id="K1T-fd-uuh"/>
+                            <constraint firstItem="70W-cd-uWy" firstAttribute="trailing" secondItem="643-gN-idL" secondAttribute="trailing" id="UBP-sf-DGB"/>
                             <constraint firstItem="70W-cd-uWy" firstAttribute="leading" secondItem="NGU-01-WRq" secondAttribute="leading" id="XqE-rS-Vf9"/>
                             <constraint firstAttribute="trailing" secondItem="70W-cd-uWy" secondAttribute="trailing" id="epy-QQ-7qT"/>
                             <constraint firstItem="eaf-zi-9KH" firstAttribute="top" secondItem="HaX-OH-icL" secondAttribute="bottom" id="jzd-0J-8Yo"/>
@@ -107,12 +118,23 @@
                             <constraint firstItem="70W-cd-uWy" firstAttribute="top" secondItem="uhy-rH-Bo9" secondAttribute="bottom" constant="2" id="q8i-lC-asw"/>
                             <constraint firstItem="uhy-rH-Bo9" firstAttribute="leading" secondItem="eaf-zi-9KH" secondAttribute="trailing" constant="1" id="r1E-0O-UVT"/>
                             <constraint firstItem="eaf-zi-9KH" firstAttribute="leading" secondItem="NGU-01-WRq" secondAttribute="leading" id="t48-st-J4D"/>
+                            <constraint firstItem="70W-cd-uWy" firstAttribute="leading" secondItem="643-gN-idL" secondAttribute="leading" id="teW-aq-IpK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="新增备忘录" id="91k-If-RTM">
-                        <barButtonItem key="rightBarButtonItem" title="完成  " id="W1a-vD-rh5"/>
+                        <barButtonItem key="rightBarButtonItem" title="完成  " id="W1a-vD-rh5">
+                            <connections>
+                                <action selector="addMemorandum:" destination="Skd-Ti-Vaj" id="ypT-YJ-udP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="addMemorandum" destination="W1a-vD-rh5" id="ro2-rp-ZdN"/>
+                        <outlet property="memoraInformation" destination="70W-cd-uWy" id="O5p-63-ifd"/>
+                        <outlet property="memoraTitle" destination="uhy-rH-Bo9" id="MPW-ge-3fK"/>
+                        <outlet property="placeholderLable" destination="643-gN-idL" id="sGu-hL-GpX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p2U-HK-jDZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -135,14 +157,13 @@
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.80415688230000004" blue="0.8544569528" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="21"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RVg-Vr-XhV">
                                 <rect key="frame" x="0.0" y="114" width="320" height="299"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.90661267960000003" green="0.80127071809999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <mutableString key="text">哈哈哈哈Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.哈哈哈</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

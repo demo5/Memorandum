@@ -8,30 +8,67 @@
 
 #import "YQNewMenorViewController.h"
 
-@interface YQNewMenorViewController ()
+@interface YQNewMenorViewController ()<UITextViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addMemorandum;
+@property (weak, nonatomic) IBOutlet UITextField *memoraTitle;
+@property (weak, nonatomic) IBOutlet UITextView *memoraInformation;
+@property (weak, nonatomic) IBOutlet UILabel *placeholderLable;
+
+@property (nonatomic,copy) NSMutableArray *dataArr;
 @end
 
 @implementation YQNewMenorViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.memoraInformation.delegate = self;
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+-(void)savaData{
+    
+    NSMutableArray *dataArr = [[NSMutableArray alloc] init];
+
+    NSDictionary *contentDic = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                                self.memoraTitle.text,@"title",
+                                                self.memoraInformation.text,@"information",
+                                                nil];
+    
+    [dataArr insertObject:contentDic atIndex:0];
+    
+    [dataArr writeToFile:dataFilePath atomically:YES];
+       
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+- (IBAction)addMemorandum:(id)sender {
+    [self savaData];
+    
+    UIAlertView *alerView = [[UIAlertView alloc] initWithTitle:@"添加完成" message:@"您已经成功添加此条信息" delegate:self cancelButtonTitle:@"确认" otherButtonTitles:nil, nil];
+    
+    [alerView show];
 }
-*/
+
+#pragma mark - textView should editing
+-(BOOL)textViewShouldBeginEditing:(UITextView *)textView{
+
+    self.placeholderLable.text = @"";
+    self.placeholderLable.backgroundColor = [UIColor clearColor];
+    self.placeholderLable.enabled = NO;
+    return YES;
+}
+
+-(void)textViewDidEndEditing:(UITextView *)textView{
+
+    if (self.memoraInformation.text == nil) {
+        self.placeholderLable.text = @"点击这里添加内容";
+    }
+    
+}
 
 @end

@@ -8,6 +8,8 @@
 
 #import "YQMainTableViewController.h"
 #import "YQDetailsViewController.h"
+
+
 static BOOL flag = YES;
 @interface YQMainTableViewController ()
 
@@ -18,6 +20,7 @@ static BOOL flag = YES;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initItemData];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,9 +41,11 @@ static BOOL flag = YES;
 }
 -(void)initItemData{
     
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
-    self.itemArr = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
-    //    NSMutableDictionary *dic = [[NSMutableDictionary alloc] initWithContentsOfFile:filePath];
+    
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
+//    NSLog(@"%@",dataFilePath);
+    self.itemArr = [[NSMutableArray alloc] initWithContentsOfFile:dataFilePath];
+
     NSLog(@"%@",self.itemArr);
 }
 #pragma mark - Table view data source
@@ -106,5 +111,10 @@ static BOOL flag = YES;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    
+    [self initItemData];
+    [self.tableView reloadData];
+}
 
 @end

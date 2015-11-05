@@ -36,8 +36,8 @@
 -(void)initItemData{
     
     //获取文件
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
-    NSArray *itemArr = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
+    NSArray *itemArr = [[NSMutableArray alloc] initWithContentsOfFile:dataFilePath];
     
     //获取标题
     NSString *title = [[itemArr valueForKey:@"title"] objectAtIndex:self.index];

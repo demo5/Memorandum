@@ -1,0 +1,16 @@
+//
+//  PrefixHeader.pch
+//  Memorandum
+//
+//  Created by YoKing on 15/11/5.
+//  Copyright © 2015年 YQ. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+//备忘录文件全路径  data.plist全路径
+#define dataFilePath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]stringByAppendingPathComponent:@"data.plist"]
+
+
+#endif /* PrefixHeader_pch */
