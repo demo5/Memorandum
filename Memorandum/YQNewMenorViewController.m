@@ -9,13 +9,16 @@
 #import "YQNewMenorViewController.h"
 
 @interface YQNewMenorViewController ()<UITextViewDelegate>
+{
+//    NSMutableArray *dataArr;
+}
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addMemorandum;
 @property (weak, nonatomic) IBOutlet UITextField *memoraTitle;
 @property (weak, nonatomic) IBOutlet UITextView *memoraInformation;
 @property (weak, nonatomic) IBOutlet UILabel *placeholderLable;
 
-@property (nonatomic,copy) NSMutableArray *dataArr;
+@property (nonatomic,copy) NSMutableArray *_dataArr;
 @end
 
 @implementation YQNewMenorViewController
@@ -44,6 +47,9 @@
        
 }
 
+- (IBAction)endEditTitle:(id)sender {
+    [sender resignFirstResponder];
+}
 
 
 - (IBAction)addMemorandum:(id)sender {
@@ -65,10 +71,10 @@
 
 -(void)textViewDidEndEditing:(UITextView *)textView{
 
-    if (self.memoraInformation.text == nil) {
+    if (self.memoraInformation.text.length == 0) {
         self.placeholderLable.text = @"点击这里添加内容";
     }
-    
+    [self.memoraInformation resignFirstResponder];
 }
 
 @end

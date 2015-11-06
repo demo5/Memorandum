@@ -80,7 +80,10 @@
                                 <color key="backgroundColor" red="0.95736255422305627" green="1" blue="0.96918490674848756" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="endEditTitle:" destination="Skd-Ti-Vaj" eventType="editingDidEndOnExit" id="V6e-st-bLQ"/>
+                                </connections>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="70W-cd-uWy">
                                 <rect key="frame" x="0.0" y="108" width="320" height="299"/>
@@ -165,7 +168,7 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.90661267960000003" green="0.80127071809999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textView>
                         </subviews>
                         <animations/>

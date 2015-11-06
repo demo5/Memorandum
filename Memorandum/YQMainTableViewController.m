@@ -40,14 +40,9 @@ static BOOL flag = YES;
     
 }
 -(void)initItemData{
-    
-    
-//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"plist"];
-//    NSLog(@"%@",dataFilePath);
     self.itemArr = [[NSMutableArray alloc] initWithContentsOfFile:dataFilePath];
-
-    NSLog(@"%@",self.itemArr);
 }
+
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
@@ -66,32 +61,21 @@ static BOOL flag = YES;
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cells"];
     }
-//    cell.textLabel.text = [NSString stringWithFormat:@"test-message-%ld", (long)indexPath.row];
+
     cell.textLabel.text = [[self.itemArr objectAtIndex:indexPath.row] valueForKey:@"title"];
     
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"%ld",(long)UITableViewCellEditingStyleDelete);
-    if (editingStyle == UITableViewCellEditingStyleDelete)
+    
+    if (UITableViewCellEditingStyleDelete)
     {
         //从数据源中删除该行
-        
-        //删除图片
-        NSString *filePath = [[self.itemArr objectAtIndex:indexPath.row] valueForKey:@"image"];
-        NSLog(@"%@",filePath);
-        if ([[NSFileManager defaultManager] fileExistsAtPath:filePath])
-        {
-            [[NSFileManager defaultManager] removeItemAtPath:filePath error:nil];
-        }
-        
         [self.itemArr removeObjectAtIndex:indexPath.row];
+        [self.itemArr writeToFile:dataFilePath atomically:YES];
+        
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationRight];
-    }
-    else if (editingStyle == UITableViewCellEditingStyleInsert)
-    {
-        //创建相应类的实例，插入到数组中，并且向表中增加一行
     }
 }
 
