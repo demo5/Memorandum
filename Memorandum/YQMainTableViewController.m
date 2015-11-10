@@ -19,14 +19,8 @@ static BOOL flag = YES;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initItemData];
-    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 - (IBAction)editingRows:(id)sender {
     
     if (flag) {
@@ -41,11 +35,13 @@ static BOOL flag = YES;
 }
 
 -(void)initItemData{
+    
     self.itemArr = [NSMutableArray arrayWithContentsOfFile:dataFilePath];
     NSMutableDictionary *dic;
     for (int i = 0; i < self.itemArr.count; i++) {
         dic = [self.itemArr objectAtIndex:i];
     }
+    NSLog(@"%@",self.itemArr);
 }
 
 #pragma mark - Table view data source
@@ -68,6 +64,8 @@ static BOOL flag = YES;
     }
 
     cell.textLabel.text = [[self.itemArr objectAtIndex:indexPath.row] valueForKey:@"title"];
+    
+    cell.detailTextLabel.text = [[self.itemArr objectAtIndex:indexPath.row] valueForKey:@"currentTime"];
     
     return cell;
 }

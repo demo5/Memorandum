@@ -11,5 +11,4 @@
 @interface YQDetailsViewController : UIViewController
 
 @property NSInteger index;
-
 @end

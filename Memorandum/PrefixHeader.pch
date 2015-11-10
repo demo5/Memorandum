@@ -12,5 +12,4 @@
 //备忘录文件全路径  data.plist全路径
 #define dataFilePath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]stringByAppendingPathComponent:@"data.plist"]
 
-
 #endif /* PrefixHeader_pch */
