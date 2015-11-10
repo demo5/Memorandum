@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--备忘录-->
@@ -80,38 +81,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaf-zi-9KH">
-                                <rect key="frame" x="0.0" y="64" width="71" height="42"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.9992402195930481" green="0.99632686376571655" blue="0.9960598349571228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="eaf-zi-9KH" secondAttribute="height" multiplier="71:42" id="WEY-OS-Gzy"/>
-                                    <constraint firstAttribute="height" constant="42" id="hfY-IM-rC5"/>
-                                </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="标题：">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="0.35317639490000002" blue="0.37712783570000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="21" name="PingFangSC-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入标题" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="uhy-rH-Bo9">
-                                <rect key="frame" x="72" y="64" width="248" height="42"/>
+                                <rect key="frame" x="5" y="74" width="310" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.9992402195930481" green="0.99632686376571655" blue="0.9960598349571228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
                                     <action selector="endEditTitle:" destination="Skd-Ti-Vaj" eventType="editingDidEndOnExit" id="V6e-st-bLQ"/>
                                 </connections>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="70W-cd-uWy">
-                                <rect key="frame" x="0.0" y="108" width="320" height="299"/>
+                                <rect key="frame" x="0.0" y="109" width="320" height="299"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.9953189492225647" green="0.99240511655807495" blue="0.99213868379592896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -122,12 +104,12 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击这里添加内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="643-gN-idL">
-                                <rect key="frame" x="0.0" y="108" width="320" height="37"/>
+                                <rect key="frame" x="0.0" y="109" width="320" height="37"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="9RO-WK-oHe"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -135,19 +117,22 @@
                         <animations/>
                         <color key="backgroundColor" red="0.9992402195930481" green="0.99632686376571655" blue="0.9960598349571228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="uhy-rH-Bo9" secondAttribute="trailing" id="54N-bs-7f6"/>
-                            <constraint firstItem="uhy-rH-Bo9" firstAttribute="bottom" secondItem="eaf-zi-9KH" secondAttribute="bottom" id="E3v-NK-dcE"/>
+                            <constraint firstAttribute="trailing" secondItem="uhy-rH-Bo9" secondAttribute="trailing" constant="5" id="54N-bs-7f6"/>
+                            <constraint firstItem="uhy-rH-Bo9" firstAttribute="top" secondItem="HaX-OH-icL" secondAttribute="bottom" constant="10" id="Hf7-Gj-lVn"/>
                             <constraint firstItem="70W-cd-uWy" firstAttribute="top" secondItem="643-gN-idL" secondAttribute="top" id="K1T-fd-uuh"/>
+                            <constraint firstItem="uhy-rH-Bo9" firstAttribute="leading" secondItem="NGU-01-WRq" secondAttribute="leadingMargin" id="RLm-yD-kl6"/>
                             <constraint firstItem="70W-cd-uWy" firstAttribute="trailing" secondItem="643-gN-idL" secondAttribute="trailing" id="UBP-sf-DGB"/>
                             <constraint firstItem="70W-cd-uWy" firstAttribute="leading" secondItem="NGU-01-WRq" secondAttribute="leading" id="XqE-rS-Vf9"/>
                             <constraint firstAttribute="trailing" secondItem="70W-cd-uWy" secondAttribute="trailing" id="epy-QQ-7qT"/>
-                            <constraint firstItem="eaf-zi-9KH" firstAttribute="top" secondItem="HaX-OH-icL" secondAttribute="bottom" id="jzd-0J-8Yo"/>
-                            <constraint firstItem="uhy-rH-Bo9" firstAttribute="top" secondItem="eaf-zi-9KH" secondAttribute="top" id="oDN-ao-dXc"/>
-                            <constraint firstItem="70W-cd-uWy" firstAttribute="top" secondItem="uhy-rH-Bo9" secondAttribute="bottom" constant="2" id="q8i-lC-asw"/>
-                            <constraint firstItem="uhy-rH-Bo9" firstAttribute="leading" secondItem="eaf-zi-9KH" secondAttribute="trailing" constant="1" id="r1E-0O-UVT"/>
-                            <constraint firstItem="eaf-zi-9KH" firstAttribute="leading" secondItem="NGU-01-WRq" secondAttribute="leading" id="t48-st-J4D"/>
+                            <constraint firstItem="uhy-rH-Bo9" firstAttribute="leading" secondItem="NGU-01-WRq" secondAttribute="leading" constant="5" id="fm0-dp-bln"/>
+                            <constraint firstItem="70W-cd-uWy" firstAttribute="top" secondItem="uhy-rH-Bo9" secondAttribute="bottom" constant="5" id="q8i-lC-asw"/>
                             <constraint firstItem="70W-cd-uWy" firstAttribute="leading" secondItem="643-gN-idL" secondAttribute="leading" id="teW-aq-IpK"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="RLm-yD-kl6"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="新增备忘录" id="91k-If-RTM">
                         <barButtonItem key="rightBarButtonItem" title="完成  " id="W1a-vD-rh5">

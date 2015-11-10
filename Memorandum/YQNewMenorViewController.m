@@ -45,10 +45,12 @@
     //创建存储的数组
     
     NSMutableArray *dataArray =[NSMutableArray arrayWithContentsOfFile:dataFilePath];
-//    NSMutableArray *dataArray =[NSMutableArray array];
-    [dataArray addObject:contentDic];
+    if (!dataArray) {
+        dataArray =[NSMutableArray array];
+    }
+    [dataArray insertObject:contentDic atIndex:0];
     [dataArray writeToFile:dataFilePath atomically:YES];
-    NSLog(@"%@",dataArray);
+//    NSLog(@"%@",dataArray);
 }
 
 - (IBAction)endEditTitle:(id)sender {

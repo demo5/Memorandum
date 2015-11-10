@@ -41,7 +41,7 @@ static BOOL flag = YES;
     for (int i = 0; i < self.itemArr.count; i++) {
         dic = [self.itemArr objectAtIndex:i];
     }
-    NSLog(@"%@",self.itemArr);
+//    NSLog(@"%@",self.itemArr);
 }
 
 #pragma mark - Table view data source
