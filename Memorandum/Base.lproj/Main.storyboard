@@ -62,24 +62,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaf-zi-9KH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaf-zi-9KH">
                                 <rect key="frame" x="0.0" y="64" width="71" height="42"/>
                                 <animations/>
-                                <color key="backgroundColor" red="1" green="0.80415688225948312" blue="0.8544569528046535" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.9992402195930481" green="0.99632686376571655" blue="0.9960598349571228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="eaf-zi-9KH" secondAttribute="height" multiplier="71:42" id="WEY-OS-Gzy"/>
                                     <constraint firstAttribute="height" constant="42" id="hfY-IM-rC5"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="21"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="标题：">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.35317639490000002" blue="0.37712783570000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="21" name="PingFangSC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入标题" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="uhy-rH-Bo9">
                                 <rect key="frame" x="72" y="64" width="248" height="42"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.95736255422305627" green="1" blue="0.96918490674848756" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.9992402195930481" green="0.99632686376571655" blue="0.9960598349571228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
                                     <action selector="endEditTitle:" destination="Skd-Ti-Vaj" eventType="editingDidEndOnExit" id="V6e-st-bLQ"/>
@@ -88,7 +95,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="70W-cd-uWy">
                                 <rect key="frame" x="0.0" y="108" width="320" height="299"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.90661267963480596" green="0.80127071813103812" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.9953189492225647" green="0.99240511655807495" blue="0.99213868379592896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="299" id="2D9-tU-MlF"/>
                                     <constraint firstAttribute="width" secondItem="70W-cd-uWy" secondAttribute="height" multiplier="320:299" id="l7a-qK-8aK"/>
@@ -108,7 +115,7 @@
                             </label>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.9992402195930481" green="0.99632686376571655" blue="0.9960598349571228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="uhy-rH-Bo9" secondAttribute="trailing" id="54N-bs-7f6"/>
                             <constraint firstItem="uhy-rH-Bo9" firstAttribute="bottom" secondItem="eaf-zi-9KH" secondAttribute="bottom" id="E3v-NK-dcE"/>
@@ -158,7 +165,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="标题：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5it-yK-xxX">
                                 <rect key="frame" x="0.0" y="64" width="320" height="42"/>
                                 <animations/>
-                                <color key="backgroundColor" red="1" green="0.80415688230000004" blue="0.8544569528" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.9992402195930481" green="0.99632686376571655" blue="0.9960598349571228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="21"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -166,7 +173,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RVg-Vr-XhV">
                                 <rect key="frame" x="0.0" y="114" width="320" height="299"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.90661267960000003" green="0.80127071809999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.9992402195930481" green="0.99632686376571655" blue="0.9960598349571228" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textView>

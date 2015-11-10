@@ -29,22 +29,16 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
 -(void)savaData{
+    NSDictionary *contentDic = [[NSDictionary alloc] initWithObjectsAndKeys:self.memoraTitle.text,@"title",
+                            self.memoraInformation.text,@"information",
+                            nil,@"image",
+                            nil];
     
-    NSMutableArray *dataArr = [[NSMutableArray alloc] init];
-
-    NSDictionary *contentDic = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                                self.memoraTitle.text,@"title",
-                                                self.memoraInformation.text,@"information",
-                                                nil];
-    
-    [dataArr insertObject:contentDic atIndex:0];
-    
-    [dataArr writeToFile:dataFilePath atomically:YES];
-       
+    NSMutableArray *dataArray = [NSMutableArray arrayWithContentsOfFile:dataFilePath];
+//    NSLog(@"^^^^^^^^^^%ld", dataArray.count);
+    [dataArray addObject:contentDic];
+    [dataArray writeToFile:dataFilePath atomically:YES];
 }
 
 - (IBAction)endEditTitle:(id)sender {

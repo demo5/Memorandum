@@ -39,8 +39,13 @@ static BOOL flag = YES;
     
     
 }
+
 -(void)initItemData{
-    self.itemArr = [[NSMutableArray alloc] initWithContentsOfFile:dataFilePath];
+    self.itemArr = [NSMutableArray arrayWithContentsOfFile:dataFilePath];
+    NSMutableDictionary *dic;
+    for (int i = 0; i < self.itemArr.count; i++) {
+        dic = [self.itemArr objectAtIndex:i];
+    }
 }
 
 #pragma mark - Table view data source
