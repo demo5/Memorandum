@@ -19,7 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		29A48C311BEB3C4700C43E25 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		2903AB401C05DB1700341B01 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		29BDDB8D1BE5BA2A002B4F7B /* Memorandum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorandum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29BDDB911BE5BA2A002B4F7B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29BDDB931BE5BA2A002B4F7B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 				29BDDBAD1BE84BB6002B4F7B /* YQDetailsViewController.m */,
 				29BDDBAF1BE863F4002B4F7B /* YQNewMenorViewController.h */,
 				29BDDBB01BE863F4002B4F7B /* YQNewMenorViewController.m */,
-				29A48C311BEB3C4700C43E25 /* PrefixHeader.pch */,
+				2903AB401C05DB1700341B01 /* PrefixHeader.pch */,
 			);
 			path = Memorandum;
 			sourceTree = "<group>";

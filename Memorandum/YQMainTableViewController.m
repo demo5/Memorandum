@@ -12,7 +12,7 @@
 
 static BOOL flag = YES;
 @interface YQMainTableViewController ()
-
+@property (nonatomic,strong)UIButton *btn;
 @end
 
 @implementation YQMainTableViewController
