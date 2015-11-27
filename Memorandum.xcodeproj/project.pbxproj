@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2903AB441C08118700341B01 /* YQComposeToolba.m in Sources */ = {isa = PBXBuildFile; fileRef = 2903AB431C08118700341B01 /* YQComposeToolba.m */; };
+		2903AB471C08271100341B01 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2903AB461C08271100341B01 /* UIView+Extension.m */; };
 		29BDDB921BE5BA2A002B4F7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BDDB911BE5BA2A002B4F7B /* main.m */; };
 		29BDDB951BE5BA2A002B4F7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BDDB941BE5BA2A002B4F7B /* AppDelegate.m */; };
 		29BDDB9B1BE5BA2A002B4F7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29BDDB991BE5BA2A002B4F7B /* Main.storyboard */; };
@@ -20,6 +22,10 @@
 
 /* Begin PBXFileReference section */
 		2903AB401C05DB1700341B01 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		2903AB421C08118700341B01 /* YQComposeToolba.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQComposeToolba.h; sourceTree = "<group>"; };
+		2903AB431C08118700341B01 /* YQComposeToolba.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQComposeToolba.m; sourceTree = "<group>"; };
+		2903AB451C08271100341B01 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		2903AB461C08271100341B01 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		29BDDB8D1BE5BA2A002B4F7B /* Memorandum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorandum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29BDDB911BE5BA2A002B4F7B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29BDDB931BE5BA2A002B4F7B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -48,6 +54,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2903AB411C08115D00341B01 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				2903AB451C08271100341B01 /* UIView+Extension.h */,
+				2903AB461C08271100341B01 /* UIView+Extension.m */,
+				2903AB421C08118700341B01 /* YQComposeToolba.h */,
+				2903AB431C08118700341B01 /* YQComposeToolba.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		29BDDB841BE5BA2A002B4F7B = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +84,7 @@
 		29BDDB8F1BE5BA2A002B4F7B /* Memorandum */ = {
 			isa = PBXGroup;
 			children = (
+				2903AB411C08115D00341B01 /* Tools */,
 				29BDDB931BE5BA2A002B4F7B /* AppDelegate.h */,
 				29BDDB941BE5BA2A002B4F7B /* AppDelegate.m */,
 				29BDDB991BE5BA2A002B4F7B /* Main.storyboard */,
@@ -168,7 +186,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				29BDDB951BE5BA2A002B4F7B /* AppDelegate.m in Sources */,
+				2903AB441C08118700341B01 /* YQComposeToolba.m in Sources */,
 				29BDDB921BE5BA2A002B4F7B /* main.m in Sources */,
+				2903AB471C08271100341B01 /* UIView+Extension.m in Sources */,
 				29BDDBB11BE863F4002B4F7B /* YQNewMenorViewController.m in Sources */,
 				29BDDBA91BE5BAB7002B4F7B /* YQMainTableViewController.m in Sources */,
 				29BDDBAE1BE84BB6002B4F7B /* YQDetailsViewController.m in Sources */,

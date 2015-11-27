@@ -8,8 +8,8 @@
 
 #import "YQNewMenorViewController.h"
 #import "YQMainTableViewController.h"
-//#import "SelectedPhoto.h"
-@interface YQNewMenorViewController ()<UITextViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate>
+#import "YQComposeToolba.h"
+@interface YQNewMenorViewController ()<UITextViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate,UIScrollViewDelegate,YQComposeToolbaDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addMemorandum;//完成按钮
 @property (weak, nonatomic) IBOutlet UITextField *memoraTitle;//标题
 @property (weak, nonatomic) IBOutlet UITextView *memoraInformation;//备忘信息
@@ -19,15 +19,19 @@
 @property (nonatomic,copy) NSMutableArray *_dataArr;//储存数据的数组
 @property NSString  *currentTime;//时间
 @property (nonatomic ,assign) BOOL *takePhoto;//判断是否选择了照片
+@property(nonatomic ,weak)YQComposeToolba *toolbar;
 @end
 
 @implementation YQNewMenorViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     self.takePhoto = NO;
-     self.memoraInformation.delegate = self;
+    self.memoraInformation.delegate = self;
+    self.memoraInformation.alwaysBounceVertical = YES;
     
+    [self.memoraInformation addSubview:self.placeholderLable];
     //设置背景色
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
     self.memoraInformation.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
@@ -37,8 +41,27 @@
     [self.addMemorandum setEnabled:NO];
     UITapGestureRecognizer *addPhoto = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addPhoto)];
     [self.imageV addGestureRecognizer:addPhoto];
-}
+    
+    [self setupToolBar];//添加工具条
+    self.memoraTitle.inputAccessoryView = self.toolbar;
+    self.memoraInformation.inputAccessoryView = self.toolbar;
 
+}
+#pragma mark - 初始化方法
+/**
+ *  添加工具条
+ */
+-(void)setupToolBar{
+    YQComposeToolba *toolbar = [[YQComposeToolba alloc] init];
+    toolbar.width = self.view.width;
+    toolbar.height = 44;
+    toolbar.x = 0;
+    toolbar.y = self.view.height - toolbar.height;
+    
+    toolbar.delegate = self;
+    [self.view addSubview:toolbar];
+    self.toolbar = toolbar;
+}
 #pragma mark - 添加照片的操作
 /**
  *  弹出选择框
@@ -128,7 +151,6 @@
 
 #pragma mark - textView should editing
 -(BOOL)textViewShouldBeginEditing:(UITextView *)textView{
-
     self.placeholderLable.text = @"";
     self.placeholderLable.backgroundColor = [UIColor clearColor];
     self.placeholderLable.enabled = NO;
@@ -150,5 +172,11 @@
     [self.memoraInformation resignFirstResponder];
     
     }
+#pragma mark - uiscroll view delegate
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self.view endEditing:YES];
+}
+#pragma mark -- 键盘的操作
+
 
 @end
