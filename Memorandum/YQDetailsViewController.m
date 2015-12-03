@@ -16,7 +16,6 @@
 @end
 
 @implementation YQDetailsViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -40,10 +39,12 @@
 -(void)initItemData{
     
     //获取文件
-    NSArray *itemArr = [[NSMutableArray alloc] initWithContentsOfFile:dataFilePath];
+//    NSArray *itemArr = [[NSMutableArray alloc] initWithContentsOfFile:dataFilePath];
+    NSArray *itemArr = [YQItems questions];
     
     //获取标题
     NSString *title = [[itemArr valueForKey:@"title"] objectAtIndex:self.index];
+//    NSString *title = self.items.title ;
     if (title) {
         self.titleLable.text = title;
     }
@@ -54,12 +55,20 @@
         self.informationTextV.text = information;
     }
     //获取图片
-    NSData *imageD = [[itemArr valueForKey:@"image"] objectAtIndex:self.index];
-    if (imageD) {
-        UIImage *image = [UIImage imageWithData:imageD];
-        self.imageV.image = image;
+//    NSData *imageData = [[itemArr valueForKey:@"image"] objectAtIndex:self.index];
+    id data = [[itemArr valueForKey:@"image"] objectAtIndex:self.index];
+    
+    if ([data isKindOfClass:[NSData class]]){
+        UIImage *image = [UIImage imageWithData:data];
+        if (image) {
+            self.imageV.image = image;
+        }
+        else{
+            self.imageV.image = [UIImage imageNamed:@"background"];
+        
+        }
+ 
     }
-    //获取语音
 }
 
 

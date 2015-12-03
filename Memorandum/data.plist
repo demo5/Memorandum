@@ -3,44 +3,14 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>currentTime</key>
+		<string></string>
 		<key>information</key>
 		<string>该吃饭了，别忘了吃药</string>
 		<key>image</key>
 		<string>1.png</string>
 		<key>title</key>
 		<string>吃饭</string>
-	</dict>
-	<dict>
-		<key>information</key>
-		<string>快点睡觉，小心长痘痘</string>
-		<key>image</key>
-		<string>2.png</string>
-		<key>title</key>
-		<string>睡觉</string>
-	</dict>
-	<dict>
-		<key>information</key>
-		<string>再不上课要挂科了</string>
-		<key>image</key>
-		<string>3.png</string>
-		<key>title</key>
-		<string>上课</string>
-	</dict>
-	<dict>
-		<key>information</key>
-		<string>该交作业了，快点抄</string>
-		<key>image</key>
-		<string>4.png</string>
-		<key>title</key>
-		<string>写作业</string>
-	</dict>
-	<dict>
-		<key>information</key>
-		<string>起来刷卡</string>
-		<key>image</key>
-		<string>5.png</string>
-		<key>title</key>
-		<string>起床</string>
 	</dict>
 </array>
 </plist>

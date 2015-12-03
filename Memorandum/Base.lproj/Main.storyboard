@@ -93,12 +93,12 @@
                                 </connections>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="70W-cd-uWy">
-                                <rect key="frame" x="0.0" y="109" width="320" height="196"/>
+                                <rect key="frame" x="0.0" y="109" width="320" height="138"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.9953189492225647" green="0.99240511655807495" blue="0.99213868379592896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.99400097131729126" green="0.55555252333563676" blue="0.88774369990333024" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="196" id="2D9-tU-MlF"/>
-                                    <constraint firstAttribute="width" secondItem="70W-cd-uWy" secondAttribute="height" multiplier="320:299" constant="110.23411371237458" id="l7a-qK-8aK"/>
+                                    <constraint firstAttribute="height" constant="138" id="2D9-tU-MlF"/>
+                                    <constraint firstAttribute="width" secondItem="70W-cd-uWy" secondAttribute="height" multiplier="320:299" constant="172.30769230769232" id="l7a-qK-8aK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -113,11 +113,11 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noteBook" translatesAutoresizingMaskIntoConstraints="NO" id="FHp-pv-XuD">
-                                <rect key="frame" x="0.0" y="318" width="126" height="121"/>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FHp-pv-XuD">
+                                <rect key="frame" x="0.0" y="250" width="320" height="186"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="121" id="M6y-Ks-39c"/>
+                                    <constraint firstAttribute="height" constant="186" id="M6y-Ks-39c"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -132,14 +132,14 @@
                             <constraint firstItem="uhy-rH-Bo9" firstAttribute="leading" secondItem="NGU-01-WRq" secondAttribute="leadingMargin" id="RLm-yD-kl6"/>
                             <constraint firstItem="70W-cd-uWy" firstAttribute="trailing" secondItem="643-gN-idL" secondAttribute="trailing" id="UBP-sf-DGB"/>
                             <constraint firstItem="70W-cd-uWy" firstAttribute="leading" secondItem="NGU-01-WRq" secondAttribute="leading" id="XqE-rS-Vf9"/>
-                            <constraint firstItem="FHp-pv-XuD" firstAttribute="trailing" secondItem="70W-cd-uWy" secondAttribute="trailing" constant="-194" id="Zc0-fk-1Uo"/>
+                            <constraint firstItem="FHp-pv-XuD" firstAttribute="trailing" secondItem="70W-cd-uWy" secondAttribute="trailing" id="Zc0-fk-1Uo"/>
                             <constraint firstItem="FHp-pv-XuD" firstAttribute="leading" secondItem="70W-cd-uWy" secondAttribute="leading" id="d0U-jR-SmZ"/>
                             <constraint firstAttribute="trailing" secondItem="70W-cd-uWy" secondAttribute="trailing" id="epy-QQ-7qT"/>
                             <constraint firstItem="uhy-rH-Bo9" firstAttribute="leading" secondItem="NGU-01-WRq" secondAttribute="leading" constant="5" id="fm0-dp-bln"/>
                             <constraint firstItem="QDQ-kT-9Yn" firstAttribute="top" secondItem="FHp-pv-XuD" secondAttribute="bottom" constant="8" id="iwG-bm-UIh"/>
                             <constraint firstItem="70W-cd-uWy" firstAttribute="top" secondItem="uhy-rH-Bo9" secondAttribute="bottom" constant="5" id="q8i-lC-asw"/>
                             <constraint firstItem="70W-cd-uWy" firstAttribute="leading" secondItem="643-gN-idL" secondAttribute="leading" id="teW-aq-IpK"/>
-                            <constraint firstItem="QDQ-kT-9Yn" firstAttribute="top" secondItem="FHp-pv-XuD" secondAttribute="bottom" constant="41" id="vzf-dO-5mf"/>
+                            <constraint firstItem="QDQ-kT-9Yn" firstAttribute="top" secondItem="FHp-pv-XuD" secondAttribute="bottom" constant="44" id="vzf-dO-5mf"/>
                             <constraint firstItem="FHp-pv-XuD" firstAttribute="trailing" secondItem="70W-cd-uWy" secondAttribute="trailing" id="wks-f8-Mr7"/>
                         </constraints>
                         <variation key="default">
@@ -192,7 +192,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r1G-4p-5CX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r1G-4p-5CX">
                                 <rect key="frame" x="0.0" y="114" width="320" height="299"/>
                                 <animations/>
                             </imageView>
@@ -239,7 +239,4 @@
             <point key="canvasLocation" x="373" y="123"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="noteBook" width="120" height="120"/>
-    </resources>
 </document>

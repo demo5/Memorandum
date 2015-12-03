@@ -20,8 +20,8 @@
         [self setBarButtonImage:@"compose_camerabutton_background" HighImage:@"compose_camerabutton_background_highlighted" Type:YQComposeToolbarButtonTypeCamera];//相机
         
         [self setBarButtonImage:@"compose_toolbar_picture" HighImage:@"compose_toolbar_picture_highlighted" Type:YQComposeToolbarButtonTypePicture];//相册
-        
-        [self setBarButtonImage:@"compose_emoticonbutton_background" HighImage:@"compose_emoticonbutton_background_highlighted" Type:YQComposeToolbarButtonTypeVoice];//表情--->声音
+//        
+//        [self setBarButtonImage:@"compose_emoticonbutton_background" HighImage:@"compose_emoticonbutton_background_highlighted" Type:YQComposeToolbarButtonTypeVoice];//表情--->声音
         
         [self setBarButtonImage:@"compose_keyboardbutton_background" HighImage:@"compose_keyboardbutton_background_highlighted" Type:YQComposeToolbarButtonTypeKeyboardDown];//放下键盘
     }

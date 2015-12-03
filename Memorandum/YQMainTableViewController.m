@@ -8,11 +8,14 @@
 
 #import "YQMainTableViewController.h"
 #import "YQDetailsViewController.h"
-
+#import "YQItems.h"
 
 static BOOL flag = YES;
 @interface YQMainTableViewController ()
+
 @property (nonatomic,strong)UIButton *btn;
+//@property (nonatomic,copy) NSMutableArray *array;
+@property (nonatomic,strong)YQItems  *question;
 @end
 
 @implementation YQMainTableViewController
@@ -36,12 +39,17 @@ static BOOL flag = YES;
 
 -(void)initItemData{
     
-    self.itemArr = [NSMutableArray arrayWithContentsOfFile:dataFilePath];
-    NSMutableDictionary *dic;
-    for (int i = 0; i < self.itemArr.count; i++) {
-        dic = [self.itemArr objectAtIndex:i];
-    }
-//    NSLog(@"%@",self.itemArr);
+//    self.itemArr = [NSMutableArray arrayWithContentsOfFile:dataFilePath];
+//    self.itemArr = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"data.plist" ofType:nil]];
+//    NSMutableDictionary *dic;
+//    for (int i = 0; i < self.itemArr.count; i++) {
+//        dic = [self.itemArr objectAtIndex:i];
+//    }
+    
+    
+    self.itemArr = (NSMutableArray *)[YQItems questions];
+    
+   
 }
 
 #pragma mark - Table view data source
@@ -63,8 +71,8 @@ static BOOL flag = YES;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cells"];
     }
 
-    cell.textLabel.text = [[self.itemArr objectAtIndex:indexPath.row] valueForKey:@"title"];
-    
+    cell.textLabel.text = [[self.itemArr objectAtIndex:indexPath.row] valueForKey:@"title"]; 
+
     cell.detailTextLabel.text = [[self.itemArr objectAtIndex:indexPath.row] valueForKey:@"currentTime"];
     
     return cell;

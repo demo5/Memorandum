@@ -11,7 +11,7 @@
 typedef enum {
     YQComposeToolbarButtonTypeCamera,//拍照
     YQComposeToolbarButtonTypePicture,//相册
-    YQComposeToolbarButtonTypeVoice,//声音
+//    YQComposeToolbarButtonTypeVoice,//声音
     YQComposeToolbarButtonTypeKeyboardDown//键盘
 }YQComposeToolbarButtonType;
 
@@ -20,6 +20,7 @@ typedef enum {
 //代理
 @protocol YQComposeToolbaDelegate <NSObject>
 @optional
+/** 工具栏的上的按钮的监听方法*/
 -(void)composeToolBar:(YQComposeToolba *)toolbar didClickButton:(YQComposeToolbarButtonType)buttonType;
 
 @end

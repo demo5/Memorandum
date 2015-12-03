@@ -9,25 +9,37 @@
 #import "YQNewMenorViewController.h"
 #import "YQMainTableViewController.h"
 #import "YQComposeToolba.h"
+#import "YQItems.h"
 @interface YQNewMenorViewController ()<UITextViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate,UIScrollViewDelegate,YQComposeToolbaDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addMemorandum;//完成按钮
 @property (weak, nonatomic) IBOutlet UITextField *memoraTitle;//标题
 @property (weak, nonatomic) IBOutlet UITextView *memoraInformation;//备忘信息
 @property (weak, nonatomic) IBOutlet UILabel *placeholderLable;//提示文本
 @property (weak, nonatomic) IBOutlet UIImageView *imageV;//图片
-
+@property (nonatomic,strong) YQItems *items;
 @property (nonatomic,copy) NSMutableArray *_dataArr;//储存数据的数组
 @property NSString  *currentTime;//时间
-@property (nonatomic ,assign) BOOL *takePhoto;//判断是否选择了照片
+//@property (nonatomic ,assign) BOOL *takePhoto;//判断是否选择了照片
 @property(nonatomic ,weak)YQComposeToolba *toolbar;
+
+@property (nonatomic,assign) BOOL  isSwitchKeyboard; //判断时候正在切换键盘
 @end
 
 @implementation YQNewMenorViewController
-
+#pragma mark - 初始化方法
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.takePhoto = NO;
+    
+    
+    [self initMeminformationText]; //设置输入框
+    
+    [self setupToolBar];//添加工具条
+    
+    //监听键盘
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillChanggeFarme:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+}
+-(void)initMeminformationText{
     self.memoraInformation.delegate = self;
     self.memoraInformation.alwaysBounceVertical = YES;
     
@@ -36,18 +48,12 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
     self.memoraInformation.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
     self.memoraTitle.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background"]];
+    [self.memoraTitle becomeFirstResponder];
     
-    //为添加图片添加手势操作
-    [self.addMemorandum setEnabled:NO];
-    UITapGestureRecognizer *addPhoto = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addPhoto)];
-    [self.imageV addGestureRecognizer:addPhoto];
-    
-    [self setupToolBar];//添加工具条
-    self.memoraTitle.inputAccessoryView = self.toolbar;
+    //添加工具条
     self.memoraInformation.inputAccessoryView = self.toolbar;
-
+    self.memoraTitle.inputAccessoryView = self.toolbar;
 }
-#pragma mark - 初始化方法
 /**
  *  添加工具条
  */
@@ -55,45 +61,41 @@
     YQComposeToolba *toolbar = [[YQComposeToolba alloc] init];
     toolbar.width = self.view.width;
     toolbar.height = 44;
-    toolbar.x = 0;
     toolbar.y = self.view.height - toolbar.height;
+    [self.view addSubview:toolbar];
     
     toolbar.delegate = self;
-    [self.view addSubview:toolbar];
     self.toolbar = toolbar;
 }
-#pragma mark - 添加照片的操作
-/**
- *  弹出选择框
- */
--(void)addPhoto{
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"相册选取" otherButtonTitles:@"拍照", nil];
-    [actionSheet showInView:self.view];
-}
-/**
- *  选取照片的方式
- */
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    if (buttonIndex != 2) {
-        if (buttonIndex == 0) {
-            picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        } else {
-            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+#pragma mark- 监听方法
+-(void)keyBoardWillChanggeFarme:(NSNotification *)notification{
+    
+    //如果正在切换键盘 ，则不改变工具条的位置
+    if(self.isSwitchKeyboard) return;
+    
+    NSDictionary *userInfo = notification.userInfo;
+    //动画持续时间
+    double dutation = [userInfo [UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    //键盘的frame
+    CGRect keyboardF = [userInfo [UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    [UIView animateWithDuration:dutation animations:^{
+        if (keyboardF.origin.y > self.view.height) {
+            self.toolbar.y = self.view.height - self.toolbar.height;
+        }else{
+            self.toolbar.y = keyboardF.origin.y - self.toolbar.height;
         }
-        picker.delegate = self;
-        [self presentViewController:picker animated:true completion:nil];
-    }
+    }];
     
 }
+
+#pragma mark - 添加照片的操作
 /**
  *  选择照片后的操作
  */
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
-
-   
+ 
     self.imageV.image = [info objectForKey:@"UIImagePickerControllerOriginalImage"] ;
-    self.takePhoto = YES;
+//    self.takePhoto = true;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 /**
@@ -105,25 +107,22 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM-dd HH:mm"];
     self.currentTime = [dateFormatter stringFromDate:[NSDate date]];
-    
     //创建存储的数据(字典类型)
-    NSMutableDictionary *contentDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:self.memoraTitle.text,@"title",
-                            self.memoraInformation.text,@"information",
-//                            UIImagePNGRepresentation(self.imageV.image),@"image",
-                            self.currentTime,@"currentTime",
+    NSMutableDictionary *contentDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                            self.memoraTitle.text,@"title",
+                            self.memoraInformation.text,  @"information",
+                            self.currentTime,  @"currentTime",
+                            UIImagePNGRepresentation(self.imageV.image),@"image",
                             nil];
-    if (self.takePhoto) {
-        [contentDic setValue:UIImagePNGRepresentation(self.imageV.image) forKey:@"image"];
-    }
-    else{
-        [contentDic setValue:UIImagePNGRepresentation([UIImage imageNamed:@"background"]) forKey:@"image"];
-    }
     //创建存储的数组
     NSMutableArray *dataArray =[NSMutableArray arrayWithContentsOfFile:dataFilePath];
+    
+    
     if (!dataArray) {
         dataArray =[NSMutableArray array];
     }
-    [dataArray insertObject:contentDic atIndex:0];
+    [dataArray insertObject:contentDic   atIndex:0];
+    
     [dataArray writeToFile:dataFilePath atomically:YES];
 }
 
@@ -143,9 +142,7 @@
   
     //保存数据
     [self savaData];
-    /**
-     *  返回主页面
-     */
+    /**返回主页面*/
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -177,6 +174,74 @@
     [self.view endEditing:YES];
 }
 #pragma mark -- 键盘的操作
+-(void)composeToolBar:(YQComposeToolba *)toolbar didClickButton:(YQComposeToolbarButtonType)buttonType{
+    switch (buttonType) {
+        case YQComposeToolbarButtonTypeCamera:
+            [self openCamera];
+            break;
+        case YQComposeToolbarButtonTypePicture:
+            [self openAlbum];
+            break;
+//        case YQComposeToolbarButtonTypeVoice:
+//            [self enmotionKeyboard];
+//            break;
+        case YQComposeToolbarButtonTypeKeyboardDown:
+            [self.view endEditing:YES];
+            break;
+            
+        default:
+            break;
+    }
+}
+-(void)openCamera{
+    [self openImagePickerController:UIImagePickerControllerSourceTypeCamera];
+
+}
+-(void)openAlbum{
+    [self openImagePickerController:UIImagePickerControllerSourceTypePhotoLibrary];
+}
+-(void)openImagePickerController:(UIImagePickerControllerSourceType)type{
+    
+    if (![UIImagePickerController isSourceTypeAvailable:type]) return;
+    
+    UIImagePickerController *pic = [[UIImagePickerController alloc] init];
+    pic.sourceType = type;
+    pic.delegate = self;
+    [self presentViewController:pic animated:YES completion:nil];
+    
+}
+
+/**
+ *  表情键盘
+ */
+//-(void)enmotionKeyboard{
+//
+//    if (self.memoraInformation.inputView == nil){
+//        
+//    }else{
+//        self.memoraInformation.inputView = nil;
+//    }
+//    
+//    //开始切换键盘
+//    self.isSwitchKeyboard = YES;
+//    
+//    //退出键盘
+//    [self.view endEditing:YES];
+//    
+//    //结束切换键盘
+//    self.isSwitchKeyboard = NO;
+//    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        //弹出键盘
+//        [self.memoraInformation becomeFirstResponder];
+//        
+//        
+//    });
+//}
+
+
+
+
 
 
 @end
